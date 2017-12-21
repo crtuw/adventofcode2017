@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
+# Calculates the maximum difference of cell values in each row and sums over rows.
+# Spreadsheet data is read from ASCII file with tab separated values
+
 with open("day2task1.txt", "r") as myFile:
     mySum = 0
     for line in myFile:
@@ -12,5 +15,5 @@ with open("day2task1.txt", "r") as myFile:
                 smallest = i
             if i > largest:
                 largest = i
-        mySum += largest-smallest
+        mySum += largest - smallest
     print mySum

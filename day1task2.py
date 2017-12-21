@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
+# Sums all digits which have the same digit in opposite position assuming the linear string is a closed loop
+# The string is read from an ASCII file with the string in the first line.
+
 with open("day1task2.txt", "r") as myFile:
     myPuzzleInput = myFile.readline()
 
