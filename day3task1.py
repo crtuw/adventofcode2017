@@ -59,15 +59,15 @@
 import math
 
 Ni = 10
-# TODO: Toleranz für das runden
+# TODO: tolerance for rounding
 k = int(math.ceil(-1. / 2. + (1. / 4. - 1. / 4. + float(Ni) / 4.) ** (1. / 2.)))
 nSchale = (k - 1) * 8 + 8
 Nkm1 = (k * (k - 1) / 2 - k + 1) * 8 + (k - 2) * 8 + 8 + 1
 
-# TODO: Hier ist noch einiges falsch
-deltaN = Ni - Nkm1 - 1
-deltaN = range(24)
-num1 = [i % (nSchale / 4) for i in deltaN]
-num2 = [-(-1) ** (i / (nSchale / 8)) for i in deltaN]
-num3 = [nSchale / 16 + num1[i] * num2[i] for i in range(length(deltaN))]
-num4 = num3 + nSchale / 8
+# TODO: evaluate "angle" and Manhatten radius by mapping to periodic function and application of modulus operator
+# deltaN = Ni - Nkm1 - 1
+# deltaN = range(24)
+# num1 = [i % (nSchale / 4) for i in deltaN]
+# vnum2 = [-(-1) ** (i / (nSchale / 8)) for i in deltaN]
+# num3 = [nSchale / 16 + num1[i] * num2[i] for i in range(length(deltaN))]
+# num4 = num3 + nSchale / 8
