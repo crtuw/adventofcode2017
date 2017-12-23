@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 
 #   The solution is based on the existence of a functional relation between the spiral coordinate iInput and the
-# circle "radius" r (the circle "radius" takes the circle number idCircle for every first element of the circle)
+# circle "radius" r (the circle "radius" takes the circle number idCircle for every last element of the circle)
 #
 #  The number of elements of each spiral can be calculated from elements of the inner adjacent spiral by
 # (1) nElem(idCircle) = nElem(idCircle-1) + 8 valid for all i in (1,infinity)
