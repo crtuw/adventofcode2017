@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
+# 1. Comments on the derivation of the mapping from the spiral coordinates to the Manhatten distance:
+# ---------------------------------------------------------------------------------------------------
 #   The solution is based on the existence of a functional relation between the spiral coordinate iInput and the
 # circle "radius" r (the circle "radius" takes the circle number idCircle for every last element of the circle)
 #
@@ -38,16 +40,17 @@
 #
 # with the solution
 #
-# (8) nCircle = -p/2 +- sqrt(p**2 / 2 - q)
+# (8) nCircle = -p/2 +- sqrt(p**2 / 4 - q)
 #
 # considering that for ifCircle > 1, q < 1/2 and hence (p**2 / 2 - q) > 0, only the positive squares
 #
-# (9) nCircle = -p/2 + sqrt(p**2 / 2 - q)
+# (9) nCircle = -p/2 + sqrt(p**2 / 4 - q)
 #
 # are considered. Because (6) is monotonous rising function, even if nElemAll is between two circles, (9) leads to
-# nCircle between two that of two circles. Therefore, the circle number is finally evaluated from input number by
+# a nCircle between that of two circles. Therefore, the circle number is finally evaluated from input number by
+# rounding (9) with (Don't forget to account for numeric errors close to nElemAll(nCircle))
 #
-# (10) nCircle = floor (eq.(9) (iInput -> nElemAll)). ! Don't forget to consider rounding errors close to nElemAll
+# (10) nCircle = ceil ( -1/2 + sqrt(((1 - iInput) * (2 / 8))**2 / 4 - q))
 #
 # With (3) and (6), the number of all elements including this circle as well as the number of elements in this circle
 # can be evaluated and therefore the "angle" of the element, from which by application of modulus, the
@@ -55,11 +58,27 @@
 #
 # The approach is very efficient for large spiral coordinates, because it doesn't require loops and the
 # number of operations is therefore independent of the coordinate or spiral radius.
+#
+# ---------------------------------------------------
+#					.	.	.
+#		17	16	15	14	13	.
+#		18	5	4	3	12	.
+#		19	6	1	2	11	.
+#		20	7	8	9	10	.
+#		21	22	23	24	25	26
+#				/		 \
+#     e.g. iInput		nElemAll(idCircle = 2) = 25
+#						nElem(idCircle = 2) = 16
+#
+# ---------------------------------------------------
+# | 		figure 1: Spiral coordinates
+# ---------------------------------------------------
+
 
 import math
 
 Ni = 10
-# TODO: tolerance for rounding
+# TODO: tolerance for rounding, revise variable names and simplify code
 k = int(math.ceil(-1. / 2. + (1. / 4. - 1. / 4. + float(Ni) / 4.) ** (1. / 2.)))
 nSchale = (k - 1) * 8 + 8
 Nkm1 = (k * (k - 1) / 2 - k + 1) * 8 + (k - 2) * 8 + 8 + 1
