@@ -99,7 +99,6 @@
 
 import math
 
-
 def spiralCoord2manhattenDist(iInput):
 	""""returns manhatten distance from spiral coordinate"""
 	idCircle = int(math.ceil(-1. / 2. + math.sqrt(1. / 4. - (1. - float(iInput)) * (2. / 8.))))  # see eq. (10)
